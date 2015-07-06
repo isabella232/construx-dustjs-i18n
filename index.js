@@ -19,8 +19,8 @@
 
 
 var path = require('path'),
-  requireAny = require('../lib/requireany'),
-  i18n = require('./localize'),
+  requireAny = require('./lib/requireany'),
+  i18n = require('./lib/localize'),
   lib = requireAny('dustjs-linkedin', 'adaro');
 
 
