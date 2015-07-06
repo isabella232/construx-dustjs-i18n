@@ -105,10 +105,12 @@ test('construx-dustjs-i18n', function (t) {
     });
 
 });
+
 test('construx-dustjs-i18n localize.preHook', function (t) {
 
 
     t.test('correctly constructs context', function (t) {
+        t.plan(3);
         var args = {
             paths: [path.resolve(__dirname, '../tmp/templates')],
             context: {
@@ -120,7 +122,7 @@ test('construx-dustjs-i18n localize.preHook', function (t) {
             }
         };
         i18n.preHook(args.context, function (err, context) {
-            t.plan(3);
+
             t.deepEqual(context.locality, {country: 'US', language: 'fr'});
             t.equal(context.srcPath, path.resolve(__dirname, 'fixtures/public/templates/localized.dust'));
             t.equal(context.origName, 'localized');
