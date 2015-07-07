@@ -22,89 +22,10 @@
 
 var test = require('tap').test,
   path = require('path'),
-  Dust = require(path.resolve(__dirname, '..')),
   destRoot = path.resolve(__dirname, 'tmp'),
-  fs = require('fs'),
   i18n = require(path.resolve(__dirname, '../lib/localize'));
 
 
-test('construx-dustjs-i18n', function (t) {
-
-
-    t.test('localizes a good dust file', function (t) {
-        var args = {
-            paths: [path.resolve(__dirname, '../tmp/templates')],
-            context: {
-                srcRoot: path.resolve(__dirname, 'fixtures/public'),
-                destRoot: destRoot,
-                filePath: '/templates/localized.js',
-                name: 'localized',
-                ext: 'dust',
-                origName: 'localized',
-                srcPath: path.resolve(__dirname, 'fixtures/public/templates/localized.dust')
-            }
-        };
-        var localePath = path.resolve(__dirname, 'fixtures/locales/US/es');
-        var dust = Dust({i18n: {contentPath: localePath}});
-        t.plan(1);
-        dust(' ', args, function (err, compiled) {
-            t.ok(compiled.indexOf('("<div>  Hola ")') !== -1);
-            t.end();
-        });
-
-
-    });
-
-    t.test('processes a bad dust file', function (t) {
-        var args = {
-            paths: [path.resolve(__dirname, '../tmp/templates')],
-            context: {
-                srcRoot: path.resolve(__dirname, 'fixtures/public'),
-                destRoot: destRoot,
-                filePath: '/templates/localized-bad.js',
-                name: 'localized-bad',
-                ext: 'dust',
-                origName: 'localized-bad',
-                srcPath: path.resolve(__dirname, 'fixtures/public/templates/localized-bad.dust')
-            }
-        };
-        var localePath = path.resolve(__dirname, 'fixtures/locales/US/es');
-        var dust = Dust({i18n: {contentPath: localePath}});
-        t.plan(1);
-        dust(' ', args, function (err, compiled) {
-            t.ok(err.name === 'Error');
-            t.end();
-        });
-
-
-    });
-
-    t.test('processes a non-localized dust file', function (t) {
-        var args = {
-            paths: [path.resolve(__dirname, '../tmp/templates')],
-            context: {
-                srcRoot: path.resolve(__dirname, 'fixtures/public'),
-                destRoot: destRoot,
-                filePath: '/templates/index.js',
-                name: 'index',
-                ext: 'dust',
-                origName: 'index',
-                srcPath: path.resolve(__dirname, 'fixtures/public/templates/index.dust')
-            }
-        };
-        var dust = Dust({});
-        t.plan(1);
-        fs.readFile(path.resolve(__dirname, 'fixtures/public/templates/index.dust'), function (err, data) {
-            dust(data, args, function (err, compiled) {
-                t.ok(compiled.indexOf('<h1>Hello, world!</h1>') !== -1);
-                t.end();
-            });
-        });
-
-
-    });
-
-});
 
 test('construx-dustjs-i18n localize.preHook', function (t) {
 

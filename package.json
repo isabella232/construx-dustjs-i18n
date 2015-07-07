@@ -6,7 +6,7 @@
   "scripts": {
     "test": "tap test/*.js",
     "cover": "nyc npm test && nyc report",
-    "lint": "jshint -c .jshintrc index.js"
+    "lint": "jshint -c .jshintrc index.js lib/*.js"
   },
   "repository": {
     "type": "git",
