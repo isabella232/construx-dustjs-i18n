@@ -1,9 +1,9 @@
-# construx-star
+# construx-dustjs-i18n
 
-Lead Maintainer: [star](star)
+Lead Maintainer: [Matt Edelman](https://github.com/grawk)
 
-[![Build Status](https://travis-ci.org/krakenjs/construx-star.svg?branch=master)](https://travis-ci.org/krakenjs/construx-star)
-[![NPM version](https://badge.fury.io/js/construx-star.png)](http://badge.fury.io/js/construx-star)
+[![Build Status](https://travis-ci.org/krakenjs/construx-dustjs-i18n.svg?branch=master)](https://travis-ci.org/krakenjs/construx-dustjs-i18n)
+[![NPM version](https://badge.fury.io/js/construx-dustjs-i18n.png)](http://badge.fury.io/js/construx-dustjs-i18n)
 
 [construx](https://github.com/krakenjs/construx) plugin for JIT-compiling star resources during development of [express](http://expressjs.com/) applications.
 
@@ -31,7 +31,7 @@ This plugin requires your project to have `<whatever module>@<whatever semver>`.
 ### Install
 
 ```shell
-$ npm install --save-dev construx-star
+$ npm install --save-dev construx-dustjs-i18n
 ```
 
 ### Configure
@@ -41,7 +41,7 @@ Where you configure your construx plugins:
 ```json
 {
     "star": {
-        "module": "construx-star",
+        "module": "construx-dustjs-i18n",
         "files": "/star/**/*.compiled",
     }
 }
