@@ -7,24 +7,14 @@ Lead Maintainer: [Matt Edelman](https://github.com/grawk)
 
 [construx](https://github.com/krakenjs/construx) plugin for JIT-compiling star resources during development of [express](http://expressjs.com/) applications.
 
-## REMOVE THIS SECTION
-
-This repository is meant as a template for `construx` plugins. If you wish to use it:
-* create a repository named `construx-<wrapped compiler>`
-* use the github import feature to pull in this repository
-* If you aren't a PayPal employee, remove the PayPal license text in the source code
-* author your plugin functionality into `index.js`
-
-If you want the krakenjs team to promote your plugin:
-* edit this `README` to reflect your plugin's requirements, configuration, and purpose
-* write unit tests which sufficiently exercise the most likely encountered use cases
-* publish your plugin to npm
-* Inform us by filing an issue [here](https://github.com/krakenjs/construx/issues), to add your plugin to the list of `construx` plugins
-* The team will process your request as quickly as possible
-
 ## Requirements
 
-This plugin requires your project to have `<whatever module>@<whatever semver>`.
+This plugin requires your project to have `dustjs-linkedin@~2.6.2` installed. This plugin compiles localized and compiled DustJS 
+templates per the adaro/engine-munger/localizr mode of localization. I.e. if you are using that suite of modules and 
+pre-compiling all dust templates into locale-based JS files during a build step using grunt-localizr. If you are not using 
+localization features, or if you are using the newer and preferred approach to dust localization (please see 
+[New I18n Support for DustJS](http://krakenjs.com/2015/07/06/new-i18n-for-dust.html)), then you should instead use the 
+simpler [construx-dustjs](https://github.com/krakenjs/construx-dustjs) plugin for `construx`.
 
 ## Usage
 
@@ -40,10 +30,13 @@ Where you configure your construx plugins:
 
 ```json
 {
-    "star": {
+    "template": {
         "module": "construx-dustjs-i18n",
-        "files": "/star/**/*.compiled",
-    }
+        "enabled": true,
+        "files": "/templates/**/*.js",
+        "base": "templates",
+        "i18n": "config:i18n"
+    },
 }
 ```
 
