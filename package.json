@@ -1,6 +1,6 @@
 {
   "name": "construx-dustjs-i18n",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "dustjs-i18n compiler plugin for construx",
   "main": "index.js",
   "scripts": {
