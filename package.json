@@ -32,13 +32,13 @@
   "devDependencies": {
     "dustjs-linkedin": "^2.7.2",
     "jshint": "~2.4.3",
-    "localizr": "^0.1.6",
     "nyc": "^2.3.0",
     "rimraf": "^2.4.1",
     "tap": "^1.2.1"
   },
   "dependencies": {
     "concat-stream": "^1.5.0",
+    "localizr": "^0.1.6",
     "mkdirp": "^0.5.1"
   }
 }
